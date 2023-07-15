@@ -28,7 +28,7 @@ int is_alpha(char c)
 /**
  * _atoi - converts string to int
  * @str: string to convert
- * Return: 
+ * Return: converted string
  */
 
 int _atoi(char *str)
