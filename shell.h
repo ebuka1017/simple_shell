@@ -24,5 +24,17 @@ char *_strchr(char *, char);
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 
+/* mem_func.c */
+int bfree(void **);
+char *_memset(char *, char, unsigned int);
+void *_realloc(void *, unsigned int, unsigned int);
+void ffree(char **);
+
+/* utils2.c */
+int is_interactive(info_t *);
+int is_delimeter(char, char *);
+int is_alpha(int);
+int _atoi(char *);
+
 #endif
 
