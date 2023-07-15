@@ -32,7 +32,7 @@ int _strlen(char *str)
 	if (!str)
 		return (0);
 
-	while (*s++)
+	while (*str++)
 		count++;
 	return (count);
 }

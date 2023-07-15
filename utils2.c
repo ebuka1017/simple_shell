@@ -17,7 +17,7 @@ int is_interactive(info_t *info)
  * Return: 1 if true, 0 if false
  */
 
-int is_alpha(char c)
+int is_alphapetic(char c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
