@@ -64,7 +64,7 @@ int _atoi(char *str)
  * Return: 1 for true, 0 if false
  */
 
-int is_delim(char c, char *delim)
+int is_delimeter(char c, char *delim)
 {
 	while (*delim)
 		if (*delim++ == c)
