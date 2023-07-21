@@ -21,13 +21,23 @@ void _puts(char *s)
 
 /**
  * _putchar - writes a charact to stdout
- * @c: char to print
+ * @ch: char to print
  * Return: 1 on success, -1 on error
  */
 
-int _putchar (char c)
+int _putchar (char ch)
 {
-	return (write(1, &c, 1));
+	static int i;
+	static char buffer[1024];
+
+	if (ch == -1 || i >= 1024)
+	{
+		write(1, buffer, i);
+		i = 0;
+	}
+	if (ch != -1)
+		buffer[i++] = ch;
+	return (1);
 }
 
 /**

@@ -12,6 +12,11 @@
 #include <fcntl.h>
 #include <errno.h>
 
+#define HIST_FILE ".simple_shell_history"
+#define HIST_MAX 4096
+
+extern char **environ;
+
 /**
  * struct linked_list - single linked list
  * @num: number field
@@ -60,7 +65,7 @@ typedef struct info
 	list_t *env;
 	list_t *hist;
 	list_t *alias;
-	char **environment;
+	char **environ;
 	int changed_env;
 	int status;
 	char **cmd_buffer;
@@ -107,6 +112,27 @@ int is_interactive(info_t *);
 int is_delimeter(char, char *);
 int is_alphapetic(char);
 int _atoi(char *);
+
+/* err_func.c */
+void remove_comments(char *);
+char *_itoa(long int, int, int);
+int print_d(int num, int fd);
+void print_error(info_t *, char *);
+int error_atoi(char *);
+
+/* linked_list1.c */
+list_t *add_node(list_t **, const char *, int);
+list_t *add_node_to_end(list_t **, const char *, int);
+size_t print_str_list(const list_t *);
+int delete_node(list_t **, unsigned int);
+void free_list(list_t **);
+
+/* linked_list2.c */
+size_t len_list(const list_t *);
+char **list_strings(list_t *);
+size_t print_list(const list_t *);
+list_t *starts_with(list_t *, char *, char);
+ssize_t get_node(list_t *, list_t *);
 
 #endif
 
