@@ -67,7 +67,7 @@ int print_d(int num, int fd)
 	unsigned int absol, current;
 
 	if (fd == STDERR_FILENO)
-		_putchar = _eputchar;
+		__putchar = _eputchar;
 	if (num < 0)
 	{
 		absol = -num;

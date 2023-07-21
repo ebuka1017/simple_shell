@@ -120,6 +120,12 @@ int print_d(int num, int fd);
 void print_error(info_t *, char *);
 int error_atoi(char *);
 
+/* err_func2.c */
+void _eputs(char *);
+int _eputchar(char);
+int _putfd(char, int fd);
+int _putsfd(char *, int fd);
+
 /* linked_list1.c */
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_to_end(list_t **, const char *, int);
