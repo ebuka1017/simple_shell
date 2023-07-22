@@ -7,7 +7,7 @@
  * @value: value of string env
  * Return: 0
  */
-int _set_file_env(info_t *f_info, char *var, char value)
+int _set_file_env(info_t *f_info, char *var, char *value)
 {
 	char *buffer = NULL;
 	list_t *node;

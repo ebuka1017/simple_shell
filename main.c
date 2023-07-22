@@ -38,7 +38,7 @@ int main(int argsc, char **argsv)
 		file_info->readfd = fd;
 	}
 	create_env_list(file_info);
-	read_history(file_info);
+	read_hist(file_info);
 	hsh(file_info, argsv);
 	return (EXIT_SUCCESS);
 }
