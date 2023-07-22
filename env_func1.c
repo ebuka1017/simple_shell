@@ -32,7 +32,7 @@ int _free_env(info_t *f_info)
 		return (1);
 	}
 	for (i = 1; i <= f_info->argc; i++)
-		_unsetenv(f_info, f_info->argv[i]);
+		_unset_file_env(f_info, f_info->argv[i]);
 	return (0);
 }
 
@@ -43,7 +43,7 @@ int _free_env(info_t *f_info)
  */
 int create_env_list(info_t *f_info)
 {
-	list_t *node =NULL;
+	list_t *node = NULL;
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
@@ -53,7 +53,7 @@ int create_env_list(info_t *f_info)
 }
 
 /**
- * _myenv - prints the current environ
+ * _currenv - prints the current environ
  * @f_info: struct address
  * Return: 0
  */

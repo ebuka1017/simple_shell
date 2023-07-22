@@ -22,7 +22,7 @@ void remove_comments(char *str)
  * _itoa - convert number to string
  * @num: number to be converted
  * @base: number's base
- * @flages: argument flags
+ * @flags: argument flags
  * Return: the converted string
  */
 char *_itoa(long int num, int base, int flags)

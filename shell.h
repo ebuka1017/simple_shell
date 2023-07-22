@@ -43,7 +43,7 @@ typedef struct linked_list
  * @env: local copy of environ
  * @hist: history node
  * @alias: alias node
- * @environment: modified copy of environ from ll env
+ * @environ: modified copy of environ from ll env
  * @changed_env: true if env changed
  * @status: return status of exec command
  * @cmd_buffer: address of pointer to cmd_buf
@@ -168,9 +168,16 @@ int _free_env(info_t *);
 int create_env_list(info_t *);
 
 /* env_func2.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
+char **get_file_environ(info_t *);
+int _unset_file_env(info_t *, char *);
 int _setenv(info_t *, char *, char *);
+
+/* file_io_func.c */
+char *get_hist(info_t *f_info);
+int write_hist(info_t *f_info);
+int read_hist(info_t *f_info);
+int build_hist(info_t *f_info, char *buffer, int line_count);
+int renum_hist(info_t *f_info);
 
 #endif
 

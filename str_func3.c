@@ -11,6 +11,7 @@ char **strtow2(char *str, char delim)
 {
 	int i, j, k, m, words_count = 0;
 	char **res;
+
 	if (str[0] == 0 || str == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
@@ -20,7 +21,7 @@ char **strtow2(char *str, char delim)
 			words_count++;
 	if (words_count == 0)
 		return (NULL);
-	res = malloc ((1 + words_count) * sizeof(char *));
+	res = malloc((1 + words_count) * sizeof(char *));
 	if (!res)
 		return (NULL);
 	for (i = 0, j = 0; j < words_count; j++)
@@ -46,7 +47,8 @@ char **strtow2(char *str, char delim)
 	return (res);
 }
 
-
+#define CONDITION (!is_delimeter(str[i], delim) && (is_delimeter(str[i + 1],\
+delim) || !str[i + 1]))
 
 /**
  * strtow - splits a string
@@ -54,9 +56,6 @@ char **strtow2(char *str, char delim)
  * @delim: delimeters
  * Return: pointer to an array of strings
  */
-
-#define CONDITION (!is_delimeter(str[i], delim) && (is_delimeter(str[i + 1], delim) || !str[i + 1]))
-
 
 char **strtow(char *str, char *delim)
 {
@@ -84,7 +83,7 @@ char **strtow(char *str, char *delim)
 		k = 0;
 		while (!is_delimeter(str[i + k], delim) && str[i + k])
 			k++;
-		res[j] = malloc((k+ 1) * sizeof(char));
+		res[j] = malloc((k + 1) * sizeof(char));
 		if (!res[j])
 		{
 			for (k = 0; k < j; k++)

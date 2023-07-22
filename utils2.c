@@ -12,7 +12,7 @@ int is_interactive(info_t *info)
 }
 
 /**
- * is_alpha - checks is char is alphabetic
+ * is_alphapetic - checks is char is alphabetic
  * @c: char to be checked
  * Return: 1 if true, 0 if false
  */
@@ -58,7 +58,7 @@ int _atoi(char *str)
 }
 
 /**
- * is_delim - checks for delimeters
+ * is_delimeter - checks for delimeters
  * @c: char to be checked
  * @delim: delimeter string
  * Return: 1 for true, 0 if false
