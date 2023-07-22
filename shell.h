@@ -155,5 +155,22 @@ size_t print_list(const list_t *);
 list_t *starts_with(list_t *, char *, char);
 ssize_t get_node(list_t *, list_t *);
 
+/* file_info.c */
+void clear_info(info_t *);
+void set_info(info_t *, char **);
+void free_info(info_t *, int);
+
+/* env_func1.c */
+char *_getenv(info_t *, const char *);
+int _currenv(info_t *);
+int _mysetenv(info_t *);
+int _free_env(info_t *);
+int create_env_list(info_t *);
+
+/* env_func2.c */
+char **get_environ(info_t *);
+int _unsetenv(info_t *, char *);
+int _setenv(info_t *, char *, char *);
+
 #endif
 
