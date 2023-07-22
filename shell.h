@@ -74,6 +74,21 @@ typedef struct info
 	int hist_count;
 } info_t;
 
+#define INIT_INFO \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, \
+	NULL, 0, 0, NULL, 0, 0, 0}
+
+/**
+ * struct builtin - contains a string and related function
+ * @type: builtin command flag
+ * @func: the function
+ */
+typedef struct builtin
+{
+	char *type;
+	int (*func)(info_t *);
+} builtin_table;
+
 
 void shell_loop(void);
 void display_prompt(void);
