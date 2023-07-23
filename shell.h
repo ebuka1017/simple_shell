@@ -132,7 +132,7 @@ int _atoi(char *);
 void remove_comments(char *);
 char *_itoa(long int, int, int);
 int print_d(int num, int fd);
-void print_error(info_t *, char *);
+void print_err(info_t *, char *);
 int error_atoi(char *);
 
 /* err_func2.c */
@@ -178,6 +178,15 @@ int write_hist(info_t *f_info);
 int read_hist(info_t *f_info);
 int build_hist(info_t *f_info, char *buffer, int line_count);
 int renum_hist(info_t *f_info);
+
+/* emulator_func.c */
+int _eexit(info_t *);
+int _cd(info_t *);
+int _help(info_t *);
+int _history(info_t *);
+
+/* alias_func.c */
+int _alias(info_t *);
 
 #endif
 
