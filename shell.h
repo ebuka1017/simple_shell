@@ -188,5 +188,10 @@ int _history(info_t *);
 /* alias_func.c */
 int _alias(info_t *);
 
+/* my_path.c */
+int is_command(info_t *, char *);
+char *duplicate_chars(char *, int, int);
+char *get_path(info_t *, char *, char *);
+
 #endif
 
