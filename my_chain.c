@@ -39,7 +39,7 @@ int rep_var(info_t *f_info)
 				_strdup(_itoa(getpid(), 10, 0)));
 			continue;
 		}
-		current = starts_with(f_info->env, &f_info->argv[j][1], '=');
+		current = node_str_starts(f_info->env, &f_info->argv[j][1], '=');
 		if (current)
 		{
 			rep_str(&(f_info->argv[j]),
@@ -64,7 +64,7 @@ int rep_alias(info_t *f_info)
 
 	for (j = 0; j < 10; j++)
 	{
-		current = starts_with(f_info->alias, f_info->argv[0], '=');
+		current = node_str_starts(f_info->alias, f_info->argv[0], '=');
 		if (!current)
 			return (0);
 		free(f_info->argv[0]);

@@ -68,8 +68,8 @@ int _cd(info_t *f_info)
 	}
 	else
 	{
-		_setenv(f_info, "OLDPWD", _getenv(f_info, "PWD="));
-		_setenv(f_info, "PWD", getcwd(buff, 1024));
+		_set_file_env(f_info, "OLDPWD", _getenv(f_info, "PWD="));
+		_set_file_env(f_info, "PWD", getcwd(buff, 1024));
 	}
 	return (0);
 }

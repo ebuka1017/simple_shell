@@ -18,7 +18,7 @@ void fork_my_cmd(info_t *f_info)
 	if (child_pid == 0)
 	{
 		if (execve(f_info->path, f_info->argv, 
-				get_environ(f_info)) == -1)
+				get_file_environ(f_info)) == -1)
 		{
 			free_info(f_info, 1);
 			free_info(f_info, 1);
@@ -34,7 +34,7 @@ void fork_my_cmd(info_t *f_info)
 		{
 			f_info->status = WEXITSTATUS(f_info->status);
 			if (f_info->status == 126)
-				print_error(f_info, "Permission denied\n");
+				print_err(f_info, "Permission denied\n");
 		}
 	}
 }
@@ -70,13 +70,13 @@ void search_cmd(info_t *f_info)
 	else
 	{
 		if ((is_interactive(f_info) || _getenv(f_info, "PATH=")
-			|| f_info->argv[0][0] == '/') && is_cmd(f_info, 
+			|| f_info->argv[0][0] == '/') && is_command(f_info, 
 			f_info->argv[0]))
 			fork_my_cmd(f_info);
 		else if (*(f_info->arg) != '\n')
 		{
 			f_info->status = 127;
-			print_error(f_info, "not found\n");
+			print_err(f_info, "not found\n");
 		}
 	}
 }
@@ -102,7 +102,7 @@ int hsh(info_t *f_info, char **argv)
 		if (bytes_read != -1)
 		{
 			set_info(f_info, argv);
-			ret = searc_builtin(f_info);
+			ret = search_builtin(f_info);
 			if (ret == -1)
 				search_cmd(f_info);
 		}
@@ -116,9 +116,9 @@ int hsh(info_t *f_info, char **argv)
 		exit(f_info->status);
 	if (ret == -2)
 	{
-		if (f_info->error_num == -1)
+		if (f_info->err_no == -1)
 			exit(f_info->status);
-		exit(f_info->error_num);
+		exit(f_info->err_no);
 	}
 	return (ret);
 }
@@ -132,12 +132,12 @@ int search_builtin(info_t *f_info)
 {
 	int i, ret = -1;
 	builtin_table tbl[] = {
-		{"exit", eexit},
+		{"exit", _eexit},
 		{"env", _currenv},
 		{"help", _help},
 		{"history", _history},
-		{"setenv", _setenv},
-		{"unsetenv", _unset_file_env},
+		{"setenv", _mysetenv},
+		{"unsetenv", _free_env},
 		{"cd", _cd},
 		{"alias", _alias},
 		{NULL, NULL}

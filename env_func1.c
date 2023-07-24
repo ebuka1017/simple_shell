@@ -12,7 +12,7 @@ int _mysetenv(info_t *f_info)
 		_eputs("Incorrect arguments count\n");
 		return (1);
 	}
-	if (_setenv(f_info, f_info->argv[1], f_info->argv[2]))
+	if (_set_file_env(f_info, f_info->argv[1], f_info->argv[2]))
 		return (0);
 	return (1);
 }

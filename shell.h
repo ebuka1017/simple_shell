@@ -154,7 +154,7 @@ void free_list(list_t **);
 size_t len_list(const list_t *);
 char **list_strings(list_t *);
 size_t print_list(const list_t *);
-list_t *starts_with(list_t *, char *, char);
+list_t *node_str_starts(list_t *, char *, char);
 ssize_t get_node(list_t *, list_t *);
 
 /* file_info.c */
@@ -172,7 +172,7 @@ int create_env_list(info_t *);
 /* env_func2.c */
 char **get_file_environ(info_t *);
 int _unset_file_env(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+int _set_file_env(info_t *, char *, char *);
 
 /* file_io_func.c */
 char *get_hist(info_t *f_info);
@@ -211,6 +211,9 @@ void signal_handler(__attribute__((unused))int num);
 
 /* fun_hsh */
 int hsh(info_t *, char **);
+void fork_my_cmd(info_t *);
+void search_cmd(info_t *);
+int search_builtin(info_t *);
 
 #endif
 

@@ -18,7 +18,7 @@ int remove_alias(info_t *f_info, char *s)
 	c = *ptr;
 	*ptr = 0;
 	to_return = delete_node(&(f_info->alias), get_node(f_info->alias,
-			starts_with(f_info->alias, s, -1)));
+			node_str_starts(f_info->alias, s, -1)));
 	*ptr = c;
 	return (to_return);
 }
@@ -92,7 +92,8 @@ int _alias(info_t *f_info)
 		if (ptr)
 			put_alias(f_info, f_info->argv[i]);
 		else
-			my_print_alias(starts_with(f_info->alias, f_info->argv[i], '='));
+			my_print_alias(node_str_starts(f_info->alias, 
+					f_info->argv[i], '='));
 	}
 	return (0);
 }
