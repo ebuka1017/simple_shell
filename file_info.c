@@ -77,7 +77,7 @@ void set_info(info_t *f_info, char **argsv)
 		for (count = 0; f_info->argv && f_info->argv[count]; count++)
 			;
 		f_info->argc = count;
-		replace_alias(f_info);
+		rep_alias(f_info);
 		replace_vars(f_info);
 	}
 }
