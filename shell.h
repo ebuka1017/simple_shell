@@ -202,5 +202,15 @@ int rep_alias(info_t *);
 int check_chain(info_t *, char *, size_t *);
 void continue_chain(info_t *, char *, size_t *, size_t, size_t);
 
+/* input_func.c */
+ssize_t _read_buffer(info_t *, char *, size_t *);
+int my_getline(info_t *, char **, size_t *);
+ssize_t _Input(info_t *);
+ssize_t inp_buffer(info_t *, char **, size_t *);
+void signal_handler(__attribute__((unused))int num);
+
+/* fun_hsh */
+int hsh(info_t *, char **);
+
 #endif
 

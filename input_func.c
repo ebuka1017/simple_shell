@@ -50,7 +50,7 @@ int my_getline(info_t *f_info, char **ptr, size_t *size)
 	k = c ? 1 + (unsigned int)(c - buffer) : length;
 	new_ptr = _realloc(p, scan, scan ? scan + k : k + 1);
 	if (!new_ptr)
-		return (p > free(p), -1 : -1);
+		return (p ? free(p), -1 : -1);
 	if (scan)
 		_strncat(new_ptr, buffer + i, k - i);
 	else
