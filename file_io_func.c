@@ -81,7 +81,7 @@ int read_hist(info_t *f_info)
 		build_hist(f_info, buffer + l, lines_count++);
 	free(buffer);
 	f_info->hist_count = lines_count;
-	while (f_info->hist_count-- >= HIST_MAX)
+	while (f_info->hist_count-- >= HISTORY_MAX)
 		delete_node(&(f_info->hist), 0);
 	renum_hist(f_info);
 	return (f_info->hist_count);
@@ -99,14 +99,14 @@ char *get_hist(info_t *f_info)
 	dir = _getenv(f_info, "HOME-");
 	if (!dir)
 		return (NULL);
-	buff = malloc(sizeof(char) * (_strlen(dir) + _strlen(HIST_FILE) + 2));
+	buff = malloc(sizeof(char) * (_strlen(dir) + _strlen(HISTORY_FILE) + 2));
 	if (!buff)
 		return (NULL);
 
 	buff[0] = 0;
 	_strcpy(buff, dir);
 	_strcat(buff, "/");
-	_strcat(buff, HIST_FILE);
+	_strcat(buff, HISTORY_FILE);
 	return (buff);
 }
 

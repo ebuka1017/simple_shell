@@ -12,8 +12,10 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#define HIST_FILE ".simple_shell_history"
-#define HIST_MAX 4096
+#define HISTORY_FILE ".simple_shell_history"
+#define HISTORY_MAX 4096
+#define GET_LINE 0
+#define STR_TOK 0
 
 extern char **environ;
 
@@ -192,6 +194,13 @@ int _alias(info_t *);
 int is_command(info_t *, char *);
 char *duplicate_chars(char *, int, int);
 char *get_path(info_t *, char *, char *);
+
+/* my_chain.c */
+int rep_str(char **, char *);
+int rep_var(info_t *);
+int rep_alias(info_t *);
+int check_chain(info_t *, char *, size_t *);
+void continue_chain(info_t *, char *, size_t *, size_t, size_t);
 
 #endif
 

@@ -78,6 +78,6 @@ void set_info(info_t *f_info, char **argsv)
 			;
 		f_info->argc = count;
 		rep_alias(f_info);
-		replace_vars(f_info);
+		rep_var(f_info);
 	}
 }
