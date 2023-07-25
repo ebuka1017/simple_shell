@@ -221,5 +221,9 @@ char *get_line(void);
 /* run_shell_loop */
 void run_shell_loop(void);
 
+/* setenv.c */
+int set_env(info_t *f_info);
+int unset_env(info_t *f_info);
+
 #endif
 

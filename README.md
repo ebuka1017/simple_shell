@@ -1,4 +1,4 @@
-# Simple Shell (Version 0.4.1)
+# Simple Shell (Version 1.0+)
 
 ![Shell Logo](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
 
@@ -88,6 +88,15 @@ To execute commands from a batch file, provide the file as an argument to the sh
 ./simple_shell batch_commands.txt
 ```
 
+To Initialize a new environment variable or set a new one.
+```bash
+$ setenv VARIABLE VALUE
+```
+
+To remove an environment variable:
+```bash
+$ unsetenv VARIABLE
+```
 ## Built-in Commands
 
 The Simple Shell includes the following built-in commands:
@@ -95,7 +104,7 @@ The Simple Shell includes the following built-in commands:
 1. `cd [directory]`: Change the current working directory to `directory`. If no argument is provided, change to the home directory.
 2. `env`: Display the current environment variables.
 3. `exit [status]`: Exit the shell with the specified `status`. If no argument is provided, exit with status 0.
-
+4. `setenv & unsetenv`: initialize or modify a(n) environment variable && remove an environment variable
 ## Code Organization
 
 The Simple Shell codebase is organized into multiple source files, each serving a specific purpose:
