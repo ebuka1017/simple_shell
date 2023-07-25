@@ -13,7 +13,7 @@ int main(int argsc, char **argsv)
 	int fd = 2;
 	int exit_status = 0;
 
-	printf("Simple Shell 0.1 +\n\n");
+	printf("Simple Shell 0.4.1 +\n\n");
 
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
