@@ -1,6 +1,20 @@
-# Simple Shell - README
+# Simple Shell (Version 0.4.1)
 
 ![Shell Logo](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [How to use](#how to use)
+- [Built-in Commands](#built-in-commands)
+- [Code Organization](#code organization)
+- [Requirements](#requirements)
+- [Contact](#contact)
+- [License](#license)
+
+
 
 ## Introduction
 
@@ -8,7 +22,7 @@ This is a comprehensive and efficient implementation of a simple shell program. 
 
 ## Features
 
-- **Command Execution:** Simple Shell allows users to execute various commands with arguments, just like a standard shell.
+- **Command Execution:** Simple Shell allows users to execute various commands with arguments, just like a standard shell(e.g., `ls`, `cat`, `mkdir`, etc.) .
 
 - **Environment Variables:** Users can manage environment variables and access their values within the shell.
 
@@ -26,35 +40,61 @@ This is a comprehensive and efficient implementation of a simple shell program. 
 
 - **Efficient Data Structures:** Simple Shell uses linked lists and dynamic memory allocation for efficient handling of data structures.
 
+- Handle arguments for the built-in `exit` command to exit the shell with a specific status.
+
+## Installation
+
+To use the Simple Shell, follow these steps:
+
+1. Clone the repository to your local machine:
+   
+```
+git clone <repository-url>
+```
+
+2. Compile the source code using a C compiler (e.g., `gcc`):
+   
+```
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+
+3. Run the shell:
+   
+```    
+./hsh
+```
+
+
 ## How to Use
 
-1. **Compilation:** To compile the Simple Shell program, use a C compiler with the following command:
-
-```bash
-gcc -Wall -Werror -Wextra -pedantic *.c -o simple_shell
-```
-
-2. **Launching the Shell:** Execute the compiled binary to start the Simple Shell:
-
-```bash
-./simple_shell
-```
-
-3. **Interactive Mode:** In interactive mode, the shell will present a command prompt where you can enter commands. Type `exit` to quit the shell.
+Once the Simple Shell is running, you can enter commands as you would in a regular shell. The shell will display the prompt, and you can start entering commands:
 
 ```bash
 $ ls
 file1.txt file2.txt
-$ pwd
-/home/user/Documents
-$ exit
 ```
 
-4. **Batch Mode:** To execute commands from a batch file, provide the file as an argument to the shell:
+To execute the built-in `exit` command with a specific status, use the following format:
+
+```
+$ exit status
+```
+
+Replace `status` with an integer that will be used to exit the shell. If no argument is provided, the shell will exit with status 0.
+
+To execute commands from a batch file, provide the file as an argument to the shell:
 
 ```bash
 ./simple_shell batch_commands.txt
 ```
+
+## Built-in Commands
+
+The Simple Shell includes the following built-in commands:
+
+1. `cd [directory]`: Change the current working directory to `directory`. If no argument is provided, change to the home directory.
+2. `env`: Display the current environment variables.
+3. `exit [status]`: Exit the shell with the specified `status`. If no argument is provided, exit with status 0.
 
 ## Code Organization
 
@@ -90,13 +130,6 @@ The Simple Shell codebase is organized into multiple source files, each serving 
 
 The Simple Shell program has been developed and tested on various Unix-like systems, including Linux and macOS. It requires a standard C compiler (GCC) and a POSIX-compliant operating system.
 
-## License
-
-Nil
-
-## Acknowledgments
-
-The Simple Shell project has been developed with inspiration from various open-source shell projects and POSIX shell standards.
 
 ## Contact
 
@@ -104,6 +137,11 @@ For any questions or suggestions, feel free to reach out to us at [isaacokwuzi@g
 
 ---
 
-**Authors:** ebuka1017, Omarr-kh<br>
-**Organization:** alx_africa<br>
+**Authors:** [ebuka1017](https://github.com/ebuka1017), [Omarr-kh](https://github.com/Omarr-kh)<br>
+**Organization:** [alx_africa](https://www.alxafrica.com/)<br>
 **Date:** July, 2023
+
+## License
+
+The Simple Shell is open-source software released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as permitted by the license.
+

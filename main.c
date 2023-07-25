@@ -11,6 +11,7 @@ int main(int argsc, char **argsv)
 {
 	info_t file_info[] = { INIT_INFO };
 	int fd = 2;
+	int exit_status = 0;
 
 	printf("Simple Shell 0.1 +\n\n");
 
@@ -42,6 +43,12 @@ int main(int argsc, char **argsv)
 	create_env_list(file_info);
 	read_hist(file_info);
 	hsh(file_info, argsv);
+
+	if (argsc > 1 && _strcmp(argsv[0], "exit") == 0)
+	{
+		exit_status = _atoi(argsv[1]);
+		exit(exit_status);
+	}
 	run_shell_loop();
 	return (EXIT_SUCCESS);
 }

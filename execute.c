@@ -15,8 +15,18 @@ int execute(char **args)
 {
 	pid_t pid;
 	int status;
+	int exit_status = _atoi(args[1]);
 
 	pid = fork();
+
+	if (args[0] && _strcmp(args[0], "exit") == 0)
+	{
+		if (args[1] == NULL)
+			exit(0);
+
+		exit(exit_status);
+	}
+
 
 	if (pid == 0)
 	{
