@@ -12,8 +12,6 @@ int main(int argsc, char **argsv)
 	info_t file_info[] = { INIT_INFO };
 	int fd = 2;
 
-	printf("Simple Shell 0.1 +\n\n");
-
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
 		: "=r" (fd)
@@ -42,7 +40,6 @@ int main(int argsc, char **argsv)
 	create_env_list(file_info);
 	read_hist(file_info);
 	hsh(file_info, argsv);
-	run_shell_loop();
 	return (EXIT_SUCCESS);
 }
 

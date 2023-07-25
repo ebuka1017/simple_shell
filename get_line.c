@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -23,30 +24,32 @@ char *get_line(void)
 	{
 		if (buffer_position >= buffer_size)
 		{
-		    buffer_size = read(STDIN_FILENO, buffer, BUFFER_SIZE);
-		    if (buffer_size <= 0)
-		    {
-			/* End of input or error */
-			break;
-		    }
-		    buffer_position = 0;
+			buffer_size = read(STDIN_FILENO, buffer, BUFFER_SIZE);
+			if (buffer_size <= 0)
+			{
+				break;
+			}
+			buffer_position = 0;
 		}
+		char_read = buffer[buffer_position++];
+		if (char_read == '\n' || char_read == EOF)
+		{
+			break;
+		}
+		line = realloc(line, line_length + 1);
+		if (line == NULL)
+		{
+			perror("realloc");
+			return (NULL);
+		}
+		line[line_length++] = char_read;
 	}
-
-	char_read = buffer[buffer_position++];
-	if (char_read == '\n' || char_read == EOF)
+	line = realloc(line, line_length + 1);
+	if (line == NULL)
 	{
-	    break; /* Reached end of line or end of file */
+		perror("realloc");
+		return (NULL);
 	}
-
-	/* Append the character to the line */
-	line = realloc(line, line_length + 1);
-	line[line_length++] = char_read;
-	}
-
-	/* Add a null terminator to the line */
-	line = realloc(line, line_length + 1);
 	line[line_length] = '\0';
-
 	return (line);
 }

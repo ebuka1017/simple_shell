@@ -188,7 +188,7 @@ int _help(info_t *);
 int _history(info_t *);
 
 /* alias_func.c */
-int _alias(info_t *);
+int _alias(info_t *f_info);
 
 /* my_path.c */
 int is_command(info_t *, char *);
@@ -214,6 +214,12 @@ int hsh(info_t *, char **);
 void fork_my_cmd(info_t *);
 void search_cmd(info_t *);
 int search_builtin(info_t *);
+
+/* get_line */
+char *get_line(void);
+
+/* run_shell_loop */
+void run_shell_loop(void);
 
 #endif
 

@@ -66,7 +66,7 @@ int my_print_alias(list_t *node)
 }
 
 /**
- * _alias - alis function
+ * _alias - alias function
  * @f_info: struct address
  * Return: 0
  */
