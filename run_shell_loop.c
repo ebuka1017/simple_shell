@@ -13,7 +13,7 @@ void run_shell_loop(void)
 		display_prompt();
 		command = get_line();
 
-		if (command != NULL)	
+		if (command != NULL)
 		{
 			printf("%s\n", command);
 			free(command);
