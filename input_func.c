@@ -20,7 +20,7 @@ ssize_t _read_buffer(info_t *f_info, char *buffer, size_t *size)
 }
 
 /**
- * _getline - gets the line of input
+ * my_getline - gets the line of input
  * @f_info: struct address
  * @ptr: address of buffer
  * @size: size

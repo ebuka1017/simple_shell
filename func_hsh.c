@@ -17,7 +17,7 @@ void fork_my_cmd(info_t *f_info)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(f_info->path, f_info->argv, 
+		if (execve(f_info->path, f_info->argv,
 				get_file_environ(f_info)) == -1)
 		{
 			free_info(f_info, 1);
@@ -60,7 +60,7 @@ void search_cmd(info_t *f_info)
 			k++;
 	if (!k)
 		return;
-	the_path = get_path(f_info, _getenv(f_info, "PATH="), 
+	the_path = get_path(f_info, _getenv(f_info, "PATH="),
 			f_info->argv[0]);
 	if (the_path)
 	{
@@ -70,7 +70,7 @@ void search_cmd(info_t *f_info)
 	else
 	{
 		if ((is_interactive(f_info) || _getenv(f_info, "PATH=")
-			|| f_info->argv[0][0] == '/') && is_command(f_info, 
+			|| f_info->argv[0][0] == '/') && is_command(f_info,
 			f_info->argv[0]))
 			fork_my_cmd(f_info);
 		else if (*(f_info->arg) != '\n')

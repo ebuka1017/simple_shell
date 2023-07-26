@@ -92,7 +92,7 @@ int _alias(info_t *f_info)
 		if (ptr)
 			put_alias(f_info, f_info->argv[i]);
 		else
-			my_print_alias(node_str_starts(f_info->alias, 
+			my_print_alias(node_str_starts(f_info->alias,
 					f_info->argv[i], '='));
 	}
 	return (0);
